@@ -3,17 +3,53 @@ class Person {
         this.name   = name;
         this.age    = age;
     }
-    getGretting(){
+    getGreeting(){
         //return 'Hi I am ' + this.name + '!';
-        return `Hi. I am ${this.name}!`
+        return `Hi. I am ${this.name}!.`
     }
     getDescription(){
-        return `${this.name} is ${this.age} year(s) old`;
+        return `${this.name} is ${this.age} year(s) old.`;
     }
 }
 
-const me = new Person('Misael Burboa', 29);
-console.log(me.getDescription());
+class  Student extends Person{
+    constructor(name, age, major) {
+        super(name, age);
+        this.major = major;
+    }
+    hasMajor(){
+        return !!this.major; //flip technique for return false instead of undefined
+    }
+    getDescription(){
+        let description = super.getDescription();
+        if(this.hasMajor()){
+            description += ` Their major is ${this.major}`;
+        }
+        return description;
+    }
+}
 
-const other = new Person();
-console.log(other.getGretting());
+class Traveler extends Person{
+    constructor(name, age, location) {
+        super(name, age);
+        this.location = location;
+    }
+    hasLocation(){
+        return !!this.location;
+    }
+    getGreeting(){
+        let greeting = super.getGreeting();
+        if(this.hasLocation()){
+            greeting += ` I'm visiting from ${this.location}`;
+        }
+        return greeting;
+    }
+}
+const meTraveler = new Traveler('Misael Burboa', 29, 'Hermosillo, Sonora');
+console.log(meTraveler.getGreeting());
+
+// const me = new Student('Misael Burboa', 29, 'Information Systems Engineering');
+// console.log(me.getDescription());
+//
+// const other = new Student();
+// console.log(other.getDescription());
