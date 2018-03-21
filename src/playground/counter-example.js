@@ -10,6 +10,7 @@ class Counter extends React.Component{
             count: 0
         }
     }
+    //Step 3
     handleAddOne(){
         this.setState((prevState) => {
             return {
@@ -29,7 +30,7 @@ class Counter extends React.Component{
             return {
                 count: 0
             }
-        })
+        });
     }
     render() {
         return(
