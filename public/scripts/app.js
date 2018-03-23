@@ -46,7 +46,9 @@ var IndecisionApp = function (_React$Component) {
     }, {
         key: 'handleDeleteOptions',
         value: function handleDeleteOptions() {
-            console.log('hdo', option);
+            this.setState(function () {
+                return { options: [] };
+            });
         }
     }, {
         key: 'handleDeleteOption',
@@ -75,6 +77,7 @@ var IndecisionApp = function (_React$Component) {
                 return 'This option already exists';
             }
 
+            // the prior syntax for this was this:
             // this.setState((prevState) => {
             //     return {
             //         options: prevState.options.concat([option])
@@ -134,7 +137,7 @@ var Header = function Header(props) {
         )
     );
 };
-
+//Default props for Header component
 Header.defaultProps = {
     title: 'Indecision'
 

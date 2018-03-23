@@ -21,7 +21,7 @@ class IndecisionApp extends React.Component {
     }
 
     handleDeleteOptions(){
-        console.log('hdo', option);
+        this.setState(() => ({options:[]}));
     }
     handleDeleteOption(optionToRemove){
         this.setState((prevState) => ({
@@ -40,6 +40,7 @@ class IndecisionApp extends React.Component {
             return 'This option already exists';
         }
 
+        // the prior syntax for this was this:
         // this.setState((prevState) => {
         //     return {
         //         options: prevState.options.concat([option])
@@ -86,7 +87,7 @@ const Header = (props) => {
         </div>
     );
 }
-
+//Default props for Header component
 Header.defaultProps = {
     title: 'Indecision'
 }
