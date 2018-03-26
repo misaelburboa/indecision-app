@@ -13,7 +13,7 @@ module.exports = {
             exclude: /node_modules/
         }]
     },
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'cheap-module-eval-source-map', //shows the error queue easily for developer, it is used to track the error
     devServer: {
         contentBase: path.join(__dirname, 'public')
     }
