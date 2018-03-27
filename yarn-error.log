@@ -1,14 +1,14 @@
 Arguments: 
-  /usr/lib/nodejs/node-v9.4.0/bin/node /usr/bin/yarn run dev-server
+  /usr/local/bin/nodejs/node-v9.8.0/bin/node /usr/bin/yarn run rev-server
 
 PATH: 
-  /usr/lib/nodejs/node-v9.4.0/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/cmburboa/.local/bin:/home/cmburboa/bin
+  /usr/local/bin/nodejs/node-v9.8.0/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/cmburboa/.local/bin:/home/cmburboa/bin
 
 Yarn version: 
   1.5.1
 
 Node version: 
-  9.4.0
+  9.8.0
 
 Platform: 
   linux x64
@@ -22,18 +22,20 @@ npm manifest:
     "license": "MIT",
     "scripts": {
       "serve": "live-server public/",
-      "build": "webpack --watch",
-      "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
+      "build": "webpack",
+      "dev-server": "webpack-dev-server"
     },
     "dependencies": {
       "babel-cli": "6.24.1",
       "babel-core": "6.25.0",
       "babel-loader": "7.1.1",
+      "babel-plugin-transform-class-properties": "6.24.1",
       "babel-preset-env": "1.5.2",
       "babel-preset-react": "6.24.1",
       "live-server": "^1.2.0",
       "react": "16.0.0",
       "react-dom": "16.0.0",
+      "react-modal": "2.2.2",
       "validator": "8.0.0",
       "webpack": "3.1.0",
       "webpack-dev-server": "2.5.1"
@@ -483,6 +485,10 @@ Lockfile:
     version "6.13.0"
     resolved "https://registry.yarnpkg.com/babel-plugin-syntax-async-functions/-/babel-plugin-syntax-async-functions-6.13.0.tgz#cad9cad1191b5ad634bf30ae0872391e0647be95"
   
+  babel-plugin-syntax-class-properties@^6.8.0:
+    version "6.13.0"
+    resolved "https://registry.yarnpkg.com/babel-plugin-syntax-class-properties/-/babel-plugin-syntax-class-properties-6.13.0.tgz#d7eb23b79a317f8543962c505b827c7d6cac27de"
+  
   babel-plugin-syntax-exponentiation-operator@^6.8.0:
     version "6.13.0"
     resolved "https://registry.yarnpkg.com/babel-plugin-syntax-exponentiation-operator/-/babel-plugin-syntax-exponentiation-operator-6.13.0.tgz#9ee7e8337290da95288201a6a57f4170317830de"
@@ -506,6 +512,15 @@ Lockfile:
       babel-helper-remap-async-to-generator "^6.24.1"
       babel-plugin-syntax-async-functions "^6.8.0"
       babel-runtime "^6.22.0"
+  
+  babel-plugin-transform-class-properties@6.24.1:
+    version "6.24.1"
+    resolved "https://registry.yarnpkg.com/babel-plugin-transform-class-properties/-/babel-plugin-transform-class-properties-6.24.1.tgz#6a79763ea61d33d36f37b611aa9def81a81b46ac"
+    dependencies:
+      babel-helper-function-name "^6.24.1"
+      babel-plugin-syntax-class-properties "^6.8.0"
+      babel-runtime "^6.22.0"
+      babel-template "^6.24.1"
   
   babel-plugin-transform-es2015-arrow-functions@^6.22.0:
     version "6.22.0"
@@ -1703,6 +1718,10 @@ Lockfile:
     dependencies:
       md5.js "^1.3.4"
       safe-buffer "^5.1.1"
+  
+  exenv@1.2.0:
+    version "1.2.0"
+    resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.0.tgz#3835f127abf075bfe082d0aed4484057c78e3c89"
   
   expand-brackets@^0.1.4:
     version "0.1.5"
@@ -3262,7 +3281,7 @@ Lockfile:
     dependencies:
       asap "~2.0.3"
   
-  prop-types@^15.6.0:
+  prop-types@^15.5.10, prop-types@^15.6.0:
     version "15.6.1"
     resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
     dependencies:
@@ -3369,6 +3388,10 @@ Lockfile:
       minimist "^1.2.0"
       strip-json-comments "~2.0.1"
   
+  react-dom-factories@^1.0.0:
+    version "1.0.2"
+    resolved "https://registry.yarnpkg.com/react-dom-factories/-/react-dom-factories-1.0.2.tgz#eb7705c4db36fb501b3aa38ff759616aa0ff96e0"
+  
   react-dom@16.0.0:
     version "16.0.0"
     resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.0.0.tgz#9cc3079c3dcd70d4c6e01b84aab2a7e34c303f58"
@@ -3377,6 +3400,14 @@ Lockfile:
       loose-envify "^1.1.0"
       object-assign "^4.1.1"
       prop-types "^15.6.0"
+  
+  react-modal@2.2.2:
+    version "2.2.2"
+    resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-2.2.2.tgz#4bbf98bc506e61c446c9f57329c7a488ea7d504b"
+    dependencies:
+      exenv "1.2.0"
+      prop-types "^15.5.10"
+      react-dom-factories "^1.0.0"
   
   react@16.0.0:
     version "16.0.0"
@@ -4360,7 +4391,7 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Command "dev-server" not found.
+  Error: Command "rev-server" not found. Did you mean "dev-server"?
       at new MessageError (/usr/lib/node_modules/yarn/lib/cli.js:186:110)
       at /usr/lib/node_modules/yarn/lib/cli.js:87307:17
       at Generator.next (<anonymous>)
