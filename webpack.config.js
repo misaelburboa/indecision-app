@@ -7,11 +7,22 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        rules: [{
-            loader: 'babel-loader',
-            test: /\.js$/,
-            exclude: /node_modules/
-        }]
+        rules: [
+            {
+                //'loader' is used for using a single loader
+                loader: 'babel-loader',
+                test: /\.js$/,
+                exclude: /node_modules/
+            },{
+                "test": /\.scss$/,
+                //'use' is used for using multiple loaders
+                "use": [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
+            }
+        ]
     },
     devtool: 'cheap-module-eval-source-map', //shows the error queue easily for developer, it is used to track the error
     devServer: {
